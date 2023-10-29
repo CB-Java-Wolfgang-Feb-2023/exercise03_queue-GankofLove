@@ -20,6 +20,10 @@ public class Main {
         System.out.println("Drei Elemente zur Queue hinzugefügt.");
 
         // 2. Lösche alle Elemente aus der Queue
+        // Diese Schleife wird so lange wiederholt, wie die Bedingung !queue.isEmpty() wahr ist
+        // Das bedeutet, dass die Schleife weiterläuft, solange die Queue nicht leer ist
+        // Das Ausrufezeichen ! ist ein logischer NOT-Operator, der den Wahrheitswert des nachfolgenden Ausdrucks umkehrt
+        // Also, wenn queue.isEmpty() true zurückgibt, wird !queue.isEmpty() false sein und umgekehrt
         while (!queue.isEmpty()) {
             System.out.println("Entfernt: " + queue.dequeue());
         }
