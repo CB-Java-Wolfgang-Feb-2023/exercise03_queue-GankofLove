@@ -1,19 +1,41 @@
+/*
+Angabe:
+1. ein queue objekt erstellen
+2. einzelne elemente aus der queue entfernen
+3. überprüfen ob die queue leer ist
+4. queue wieder auffüllen
+5. überprüfen ob die queue voll ist
+*/
+
 public class Main {
+
+
     public static void main(String[] args) {
-        // create an object of Queue class
+        MyQueue queue = new MyQueue(5);
 
-        // try to delete element from the queue
+        // 1. Fülle die Queue mit einigen Elementen
+        queue.enqueue("Element1");
+        queue.enqueue("Element2");
+        queue.enqueue("Element3");
+        System.out.println("Drei Elemente zur Queue hinzugefügt.");
 
-        // currently queue is empty
+        // 2. Lösche alle Elemente aus der Queue
+        while (!queue.isEmpty()) {
+            System.out.println("Entfernt: " + queue.dequeue());
+        }
 
-        // so deletion is not possible
+        // 3. Überprüfe, ob die Queue leer ist
+        System.out.println("Ist die Queue leer? " + queue.isEmpty());
 
-        // insert elements to the queue
+        // 4. Fülle die Queue wieder
+        queue.enqueue("NeuesElement1");
+        queue.enqueue("NeuesElement2");
+        queue.enqueue("NeuesElement3");
+        queue.enqueue("NeuesElement4");
+        queue.enqueue("NeuesElement5");
+        System.out.println("Queue wurde wieder aufgefüllt.");
 
-        // check when queue is full
-
-        // removes element until it is empty
-
-        // check if queue is empty
+        // 5. Überprüfe, ob die Queue voll ist
+        System.out.println("Ist die Queue voll? " + queue.isFull());
     }
 }

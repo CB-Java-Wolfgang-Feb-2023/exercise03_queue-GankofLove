@@ -1,48 +1,58 @@
 public class MyQueue {
-    private final int SIZE;
-    private int[] queue;
-    private int front, rear;
+    // Maximale Größe der Queue
+    private int maxSize;
 
-    public MyQueue(int SIZE) {
-        this.SIZE = SIZE;
-        queue = new int[SIZE];
-        //front = ...
-        //rear = ...
+    // Index des ersten Elements (vorne)
+    private int front;
+
+    // Index des letzten Elements (hinten)
+    private int rear;
+
+    // Aktuelle Anzahl der Elemente in der Queue
+    private int currentSize;
+
+    // Array zur Speicherung der Queue-Elemente (Strings in diesem Fall)
+    private String[] array;
+
+    public MyQueue(int size) {
+        this.maxSize = size;
+        this.front = 0;
+        this.rear = -1;
+        this.currentSize = 0;
+        this.array = new String[maxSize];
     }
 
-    // check if the queue is full
-    public boolean isFull() {
-        return false;
-    }
-
-    // check if the queue is empty
+    // Überprüft, ob die Queue leer ist
     public boolean isEmpty() {
-        return false;
+        return currentSize == 0;
     }
 
-    // insert elements to the queue
-    public void enqueue(int element) {
-
+    // Überprüft, ob die Queue voll ist
+    public boolean isFull() {
+        return currentSize == maxSize;
     }
 
-    // delete element from the queue
-    public int dequeue() {
-        return 0;
+    // Fügt ein Element am Ende der Queue hinzu
+    public void enqueue(String item) {
+        if (isFull()) {
+            throw new RuntimeException("Queue is full!");
+        }
+        // Zirkuläres Array: wenn rear das Ende des Arrays erreicht, geht es wieder zum Anfang
+        rear = (rear + 1) % maxSize;
+        array[rear] = item;
+        currentSize++;
     }
 
-    public int getFront() {
-        return front;
+    // Entfernt und gibt das vorderste Element der Queue zurück
+    public String dequeue() {
+        if (isEmpty()) {
+            throw new RuntimeException("Queue is empty!");
+        }
+        // Speichern des vordersten Elements temporär zum späteren Zurückgeben
+        String temp = array[front];
+        // Zirkuläres Array: wenn front das Ende des Arrays erreicht, geht es wieder zum Anfang
+        front = (front + 1) % maxSize;
+        currentSize--;
+        return temp;
     }
-
-    public int getRear() {
-        return rear;
-    }
-
-    @Override
-    public String toString() {
-        return "MyQueue{}";
-    }
-
 }
-
-
