@@ -34,3 +34,11 @@ Die "Elemente" in einer Queue können in der Praxis nahezu beliebige Objekte ode
 
 7. **Ereignisse in einem Event-basierten System:**
     - Ein ereignisgesteuertes System könnte Ereignisse in einer Queue speichern, um sie in der Reihenfolge ihres Eintreffens zu bearbeiten.
+
+
+## Notizen zum Code
+
+queue.dequeue(). 
+Die dequeue-Methode entfernt und gibt das vorderste Element der Queue zurück. Der zurückgegebene Wert (das entfernte Element) wird dann mit "Entfernt: " in der Konsole ausgegeben.
+
+Dieser Codeabschnitt durchläuft jedes Element in der Queue von vorne bis hinten und entfernt jedes Element nacheinander, während es gleichzeitig den Wert des entfernten Elements ausgibt. Am Ende dieses Abschnitts wird die Queue vollständig geleert sein.

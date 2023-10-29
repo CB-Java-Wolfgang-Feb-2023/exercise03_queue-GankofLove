@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
         MyQueue queue = new MyQueue(5);
 
-        // 1. Fülle die Queue mit einigen Elementen
+        // 1. Fülle die Queue mit Elementen
         queue.enqueue("Element1");
         queue.enqueue("Element2");
         queue.enqueue("Element3");

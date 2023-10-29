@@ -14,6 +14,7 @@ public class MyQueue {
     // Array zur Speicherung der Queue-Elemente (Strings in diesem Fall)
     private String[] array;
 
+    // Konstruktor -> Initialisiert eine neue Queue mit einer gegebenen maximalen Größe
     public MyQueue(int size) {
         this.maxSize = size;
         this.front = 0;
@@ -33,6 +34,7 @@ public class MyQueue {
     }
 
     // Fügt ein Element am Ende der Queue hinzu
+    // wirft eine RuntimeException, wenn die Queue voll ist
     public void enqueue(String item) {
         if (isFull()) {
             throw new RuntimeException("Queue is full!");
@@ -44,6 +46,7 @@ public class MyQueue {
     }
 
     // Entfernt und gibt das vorderste Element der Queue zurück
+    // wirft eine RuntimeException, wenn die Queue leer ist
     public String dequeue() {
         if (isEmpty()) {
             throw new RuntimeException("Queue is empty!");
