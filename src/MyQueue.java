@@ -39,10 +39,12 @@ public class MyQueue {
         if (isFull()) {
             throw new RuntimeException("Queue is full!");
         }
-        // Zirkuläres Array: wenn rear das Ende des Arrays erreicht, geht es wieder zum Anfang
-        rear = (rear + 1) % maxSize;
-        array[rear] = item;
-        currentSize++;
+        // Zirkuläres Array
+        rear = (rear + 1) % maxSize;        // Modulo stellt sicher, dass rear nicht größer als maxSize wird
+                                            // Wenn rear gleich maxSize ist, wird (rear + 1) % maxSize zu 0, wodurch rear wieder zum Anfang des Arrays gesetzt wird
+        array[rear] = item;                 // speichert item an der aktuellen Position (Ende) von rear
+        currentSize++;                      // erhöht die Anzahl der Elemente in der Queue um 1.
+                                            // Jedes Mal, wenn ein Element zur Queue hinzugefügt wird, wird currentSize inkrementiert, um die aktuelle Anzahl der Elemente in der Queue zu verfolgen
     }
 
     // Entfernt und gibt das vorderste Element der Queue zurück
